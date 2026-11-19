@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>stock-video</title>
+<meta name="description" content="stock-video — 우리 유튜브 채널에 직접 만든 시황 해설 영상을 비공개 예약으로 올리는 내부 도구">
+<style>
+  :root { --ink: #14181f; --soft: #5b6573; --line: #e3e7ee; --accent: #0f9e86; --bg: #ffffff; --card: #f6f8fb; }
+  @media (prefers-color-scheme: dark) { :root { --ink: #eef2f7; --soft: #a3adbb; --line: #2a3240; --accent: #2fd3b5; --bg: #0b1018; --card: #121a26; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink); font: 17px/1.7 -apple-system, "Segoe UI", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 48px 20px 64px; }
+  .mark { display: inline-block; width: 40px; height: 40px; border-radius: 8px; background: var(--ink); position: relative; vertical-align: middle; margin-right: 12px; }
+  .mark::after { content: ""; position: absolute; left: 12px; top: 12px; width: 16px; height: 16px; background: var(--accent); }
+  h1 { font-size: 34px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  h2 { font-size: 21px; margin: 36px 0 8px; }
+  p, li { color: var(--ink); }
+  .lead { color: var(--soft); margin-top: 0; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 16px 20px; margin: 18px 0; }
+  ul { padding-left: 22px; }
+  a { color: var(--accent); }
+  nav { margin-top: 40px; padding-top: 18px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 18px; font-weight: 600; }
+  .en { color: var(--soft); font-size: 15px; }
+</style>
+</head>
+<body>
+<main>
+  <h1><span class="mark"></span>stock-video</h1>
+  <p class="lead">우리 유튜브 채널에, 우리가 직접 만든 주식·코인 시황 해설 영상을 <b>비공개 + 예약 공개</b>로 올리는 내부 도구입니다.</p>
+
+  <div class="card">
+    <b>누가 쓰나요?</b> 이 도구는 연결된 유튜브 채널의 운영자만 씁니다. 일반 사용자에게 제공하는 서비스가 아니며, 회원 가입이나 로그인 페이지가 없습니다.
+  </div>
+
+  <h2>하는 일</h2>
+  <ul>
+    <li>매일 만든 해설 영상(데이터·대본·음성·화면)을 운영자 본인의 유튜브 채널에 업로드합니다.</li>
+    <li>업로드할 때 항상 <b>비공개</b>로 올리고 공개 시각을 예약합니다. 운영자가 공개 전에 확인하고 취소할 수 있습니다.</li>
+    <li>제목·설명·태그·썸네일과 'AI 사용(변경되거나 합성된 콘텐츠)' 표시를 함께 설정합니다.</li>
+    <li>업로드 전에 허용된 계정의 채널 이름·ID를 읽어, 정해진 채널이 맞는지 확인합니다.</li>
+  </ul>
+
+  <h2>Google 계정에서 사용하는 권한</h2>
+  <ul>
+    <li><code>youtube.upload</code> — 영상 업로드와 썸네일 설정</li>
+    <li><code>youtube.readonly</code> — 업로드할 채널이 맞는지 확인(채널 이름·ID 읽기)</li>
+  </ul>
+  <p>로그인 정보(토큰)는 운영자 컴퓨터의 파일에만 저장되고, 다른 서버로 보내거나 다른 사람과 공유하지 않습니다. 자세한 내용은 <a href="privacy.html">개인정보처리방침</a>을 보세요.</p>
+
+  <h2>YouTube API 서비스</h2>
+  <p>이 도구는 YouTube API 서비스를 사용합니다. 사용 시 <a href="https://www.youtube.com/t/terms">YouTube 서비스 약관</a>과 <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a>이 함께 적용됩니다.</p>
+
+  <p class="en"><b>English.</b> stock-video is an internal tool used only by the operator of the connected YouTube channels. It uploads the market-commentary videos we produce to our own channels as <b>private videos with a scheduled publish time</b>, and sets the title, description, tags, thumbnail and the altered/synthetic content disclosure. It requests <code>youtube.upload</code> (upload videos, set thumbnails) and <code>youtube.readonly</code> (confirm the target channel). OAuth tokens are stored only in a local file on the operator's computers and are never shared. This tool uses YouTube API Services; see the YouTube Terms of Service and the Google Privacy Policy.</p>
+
+  <nav>
+    <a href="privacy.html">개인정보처리방침 · Privacy Policy</a>
+    <a href="terms.html">이용약관 · Terms of Service</a>
+  </nav>
+</main>
+</body>
+</html>
